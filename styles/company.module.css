@@ -1,0 +1,82 @@
+/*
+コンテンツ幅を設定するための共通クラス
+*/
+.wrapper {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.content {
+  padding-top: 120px;
+  padding-bottom: 160px;
+}
+.site-title a {
+  width: 180px;
+  line-height: 1px;
+  display: block;
+}
+.page-title {
+  font-size: 0.875rem;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+/*-------------------------------------------
+COMPANY
+-------------------------------------------*/
+.company {
+  max-width: 600px;
+}
+.company dl {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.company dt {
+  width: 30%;
+  border-bottom: solid 1px #dcdbdb;
+  padding: 20px 10px;
+}
+.company dt:last-of-type {
+  border-bottom: none;
+}
+.company dd {
+  width: 70%;
+  border-bottom: solid 1px #dcdbdb;
+  padding: 20px 10px;
+}
+.company dd:last-of-type {
+  border-bottom: none;
+}
+.company .map {
+  /* グーグルマップをグレースケールにする */
+  filter: grayscale(1);
+}
+/* グーグルマップのサイズを設定 */
+.company .map iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+}
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+@media screen and (max-width: 900px) {
+  /*-------------------------------------------
+  COMPANY
+  -------------------------------------------*/
+  .company dl {
+    flex-direction: column;
+  }
+  .company dt {
+    width: 100%;
+    border-bottom: none;
+    padding-bottom: 5px;
+  }
+  .company dd {
+    width: 100%;
+    padding-top: 5px;
+  }
+}

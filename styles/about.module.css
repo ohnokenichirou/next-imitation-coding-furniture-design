@@ -1,0 +1,34 @@
+/*
+コンテンツ幅を設定するための共通クラス
+*/
+.wrapper {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.content {
+  padding-top: 120px;
+  padding-bottom: 160px;
+}
+.site-title a {
+  width: 180px;
+  line-height: 1px;
+  display: block;
+}
+.page-title {
+  font-size: 0.875rem;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+/*-------------------------------------------
+ABOUT
+-------------------------------------------*/
+.about {
+  max-width: 600px;
+}
+.about p {
+  line-height: 1.9;
+  margin-bottom: 30px;
+}
