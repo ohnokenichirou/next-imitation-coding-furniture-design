@@ -1,28 +1,33 @@
 import React from "react";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/detail.module.css";
 import { Layout } from "@/components/Layout";
 import { Item } from "@/types/Item";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Paginator } from "@/components/Paginator";
 
-const Home = () => {
+const Products = () => {
   const [items, setItems] = useState<Item[]>([]);
+  const [totalPages, setTotalPages] = useState(0);
+  const [page, setPage] = useState(1);
   const limit = 8;
 
   useEffect(() => {
     async function fetchItems() {
-      const response = await fetch(`/api/?limit=${limit}`);
+      const response = await fetch(`/api/?page=${page}&limit=${limit}`);
       const data = await response.json();
       setItems(data.items);
+      setTotalPages(data.totalPages);
     }
 
     fetchItems();
-  }, []);
+  }, [page]);
 
   return (
     <Layout>
-      <div className={`${styles.top} ${styles.wrapper}`}>
+      <div className={`${styles.content} ${styles.wrapper}`}>
+        <h1 className={styles["page-title"]}>Products</h1>
         <ul className={styles["product-list"]}>
           {items.map((item) => (
             <li key={item.id}>
@@ -39,12 +44,9 @@ const Home = () => {
             </li>
           ))}
         </ul>
-        <Link className={styles["link-text"]} href={"/products/1"}>
-          View More
-        </Link>
+        <Paginator totalPages={totalPages} setPage={setPage} />
       </div>
     </Layout>
   );
 };
-
-export default Home;
+export default Products;

@@ -15,7 +15,7 @@ export const Header = () => {
         </Link>
       </h1>
 
-      <nav id="navi" className={`${isShow ? styles.open : ""}`}>
+      <nav className={`${styles.navi} ${isShow ? styles.open : ""}`}>
         <ul className={styles["nav-menu"]}>
           <li>
             <Link href="/products">PRODUCTS</Link>
@@ -43,8 +43,7 @@ export const Header = () => {
       </div>
 
       <div
-        id="mask"
-        className={`${isShow ? styles.open : ""}`}
+        className={`${styles.mask} ${isShow ? styles.open : ""}`}
         onClick={() => setIsShow(!isShow)}
       ></div>
     </header>
