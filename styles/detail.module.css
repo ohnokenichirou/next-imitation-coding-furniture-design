@@ -55,6 +55,11 @@ text-align: justify;
 .item .item-img {
   width: 50%;
 }
+.link-text {
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+}
 
 /*-------------------------------------------
 SP

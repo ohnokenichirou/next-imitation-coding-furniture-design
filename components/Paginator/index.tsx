@@ -9,7 +9,7 @@ export const Paginator = ({
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   let pageNumbers: number[] = [];
-  for (let i = 1; i < totalPages; i++) {
+  for (let i = 1; i <= totalPages; i++) {
     pageNumbers = [...pageNumbers, i];
   }
 

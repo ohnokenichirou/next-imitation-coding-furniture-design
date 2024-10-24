@@ -1,17 +1,16 @@
 import React from "react";
-import styles from "@/styles/detail.module.css";
+import styles from "@/styles/products.module.css";
 import { Layout } from "@/components/Layout";
 import { Item } from "@/types/Item";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { Paginator } from "@/components/Paginator";
+import { Card } from "@/components/Card";
 
 const Products = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [totalPages, setTotalPages] = useState(0);
   const [page, setPage] = useState(1);
-  const limit = 8;
+  const limit = 12;
 
   useEffect(() => {
     async function fetchItems() {
@@ -30,18 +29,7 @@ const Products = () => {
         <h1 className={styles["page-title"]}>Products</h1>
         <ul className={styles["product-list"]}>
           {items.map((item) => (
-            <li key={item.id}>
-              <Link href={`/detail/${item.id}`}>
-                <Image
-                  src={item.url}
-                  alt={item.title}
-                  width={300}
-                  height={300}
-                />
-                <p>{item.title}</p>
-                <p>&yen;{item.price} +tax</p>
-              </Link>
-            </li>
+            <Card item={item} />
           ))}
         </ul>
         <Paginator totalPages={totalPages} setPage={setPage} />

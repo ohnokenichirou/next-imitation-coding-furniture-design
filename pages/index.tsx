@@ -3,8 +3,8 @@ import styles from "@/styles/Home.module.css";
 import { Layout } from "@/components/Layout";
 import { Item } from "@/types/Item";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import { Card } from "@/components/Card";
 
 const Home = () => {
   const [items, setItems] = useState<Item[]>([]);
@@ -25,21 +25,10 @@ const Home = () => {
       <div className={`${styles.top} ${styles.wrapper}`}>
         <ul className={styles["product-list"]}>
           {items.map((item) => (
-            <li key={item.id}>
-              <Link href={`/detail/${item.id}`}>
-                <Image
-                  src={item.url}
-                  alt={item.title}
-                  width={300}
-                  height={300}
-                />
-                <p>{item.title}</p>
-                <p>&yen;{item.price} +tax</p>
-              </Link>
-            </li>
+            <Card item={item} />
           ))}
         </ul>
-        <Link className={styles["link-text"]} href={"/products/1"}>
+        <Link className={styles["link-text"]} href={"/products/"}>
           View More
         </Link>
       </div>
