@@ -16,7 +16,9 @@ export const Paginator = ({
   return (
     <ul className={styles.pagination}>
       {pageNumbers.map((number) => (
-        <li onClick={() => setPage(number)}>{number}</li>
+        <li onClick={() => setPage(number)} key={number}>
+          {number}
+        </li>
       ))}
     </ul>
   );

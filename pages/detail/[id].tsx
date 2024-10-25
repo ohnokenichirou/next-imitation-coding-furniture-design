@@ -7,15 +7,19 @@ import { Item } from "@/types/Item";
 import { GetServerSideProps } from "next";
 
 export const getServerSideProps: GetServerSideProps = async (params) => {
-  const id = params.params?.id;
-  const req = await fetch(`http://localhost:3000/api/detail/${id}`);
-  const item = await req.json();
+  try {
+    const id = params.params?.id;
+    const req = await fetch(`http://localhost:3000/api/detail/${id}`);
+    const item = await req.json();
 
-  return {
-    props: {
-      item,
-    },
-  };
+    return {
+      props: {
+        item,
+      },
+    };
+  } catch (e) {
+    return { notFound: true };
+  }
 };
 
 const Detail = ({ item }: { item: Item }) => {

@@ -24,8 +24,8 @@ const Home = () => {
     <Layout>
       <div className={`${styles.top} ${styles.wrapper}`}>
         <ul className={styles["product-list"]}>
-          {items.map((item) => (
-            <Card item={item} />
+          {items.map((item, index) => (
+            <Card item={item} key={index} />
           ))}
         </ul>
         <Link className={styles["link-text"]} href={"/products/"}>

@@ -28,8 +28,8 @@ const Products = () => {
       <div className={`${styles.content} ${styles.wrapper}`}>
         <h1 className={styles["page-title"]}>Products</h1>
         <ul className={styles["product-list"]}>
-          {items.map((item) => (
-            <Card item={item} />
+          {items.map((item, index) => (
+            <Card item={item} key={index} />
           ))}
         </ul>
         <Paginator totalPages={totalPages} setPage={setPage} />
