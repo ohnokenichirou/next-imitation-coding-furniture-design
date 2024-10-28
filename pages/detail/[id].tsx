@@ -17,11 +17,8 @@ export const getServerSideProps: GetServerSideProps = async (params) => {
         item,
       },
     };
-  } catch (e) {
-    if (e instanceof Error) {
-      return { notFound: true };
-    }
-    throw e;
+  } catch {
+    return { notFound: true };
   }
 };
 
