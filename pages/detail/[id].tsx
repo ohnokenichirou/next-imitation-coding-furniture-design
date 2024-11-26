@@ -9,7 +9,8 @@ import { GetServerSideProps } from "next";
 export const getServerSideProps: GetServerSideProps = async (params) => {
   try {
     const id = params.params?.id;
-    const req = await fetch(`http://localhost:3000/api/detail/${id}`);
+    // const req = await fetch(`http://localhost:3000/api/detail/${id}`);
+    const req = await fetch(`http://localhost:8080/api/v1/furnitures/${id}`);
     const item = await req.json();
 
     return {
@@ -31,7 +32,7 @@ const Detail = ({ item }: { item: Item }) => {
           <div className={styles.item}>
             <div className={styles["item-img"]}>
               <Image
-                src={item.url}
+                src={item.filePath}
                 alt={item.title}
                 width={400}
                 height={400}
@@ -46,7 +47,7 @@ const Detail = ({ item }: { item: Item }) => {
               <dl>
                 <dt>SIZE：</dt>
                 <dd>
-                  W{item.size.width} × D{item.size.depth} × H{item.size.height}
+                  W{item.width} × D{item.depth} × H{item.height}
                 </dd>
                 <dt>COLOR：</dt>
                 <dd>{item.color}</dd>

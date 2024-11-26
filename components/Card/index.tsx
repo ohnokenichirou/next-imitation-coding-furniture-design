@@ -7,7 +7,7 @@ export const Card = ({ item }: { item: Item }) => {
   return (
     <li key={item.id}>
       <Link href={`/detail/${item.id}`}>
-        <Image src={item.url} alt={item.title} width={300} height={300} />
+        <Image src={item.filePath} alt={item.title} width={300} height={300} />
         <p>{item.title}</p>
         <p>&yen;{item.price} +tax</p>
       </Link>

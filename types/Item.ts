@@ -1,14 +1,12 @@
 export interface Item {
   id: number;
-  url: string;
+  filePath: string;
   title: string;
   price: number;
   texts: string[];
-  size: {
-    width: number;
-    depth: number;
-    height: number;
-  };
+  width: number;
+  depth: number;
+  height: number;
   color: string;
   material: string;
 }
