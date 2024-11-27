@@ -14,10 +14,15 @@ const Products = () => {
 
   useEffect(() => {
     async function fetchItems() {
-      const response = await fetch(`/api/?page=${page}&limit=${limit}`);
-      const data = await response.json();
-      setItems(data.items);
-      setTotalPages(data.totalPages);
+      // const response = await fetch(`/api/?page=${page}&limit=${limit}`);
+      // const data = await response.json();
+      // setItems(data.items);
+      // setTotalPages(data.totalPages);
+      const response = await fetch(`http://localhost:8080/api/v1/furnitures/?page=${page}&limit=${limit}`);
+      const items = await response.json();
+      setItems(items);
+      const totalPages = Math.ceil(items.length / limit);
+      setTotalPages(totalPages);
     }
 
     fetchItems();

@@ -12,9 +12,12 @@ const Home = () => {
 
   useEffect(() => {
     async function fetchItems() {
-      const response = await fetch(`/api/?limit=${limit}`);
-      const data = await response.json();
-      setItems(data.items);
+      // const response = await fetch(`/api/?limit=${limit}`);
+      // const data = await response.json();
+      // setItems(data.items);
+      const response = await fetch(`http://localhost:8080/api/v1/furnitures/?limit=${limit}`);
+      const items = await response.json();
+      setItems(items);
     }
 
     fetchItems();
