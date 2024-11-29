@@ -17,7 +17,7 @@ const Home = () => {
       // setItems(data.items);
       const response = await fetch(`http://localhost:8080/api/v1/furnitures?limit=${limit}`);
       const items = await response.json();
-      setItems(items);
+      setItems(items.content);
     }
 
     fetchItems();
